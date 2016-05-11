@@ -1,0 +1,12 @@
+<p>Add a recipe to $category.getName()</p>
+
+<form action="/recipes" method="post">
+  <input id="categoryId" name="categoryId" type="hidden" value="$category.getId()">
+
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input id="title" name="title" type="text" class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-success">Add Recipe</button>
+</form>
