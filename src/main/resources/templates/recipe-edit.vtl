@@ -1,0 +1,15 @@
+<h3>Update recipe:</h3>
+
+<form action="/recipes/$recipe.getId()" method="post">
+  <label for="title">New title</label>
+  <input id="title" name="title" type="text" value="$recipe.getTitle()">
+  <label for="ingredients">New ingredients</label>
+  <input id="ingredients" name="ingredients" type="text" value="$recipe.getIngredients()">
+  <label for="instructions">New instructions</label>
+  <input id="instructions" name="instructions" type="text" value="$recipe.getInstructions()">
+  <label for="rating">New rating</label>
+  <input id="rating" name="rating" type="text" value="$recipe.getRating()">
+  <button type="submit" class="btn btn-success">Update</button>
+</form>
+
+<p><a href="/recipes/$recipe.getId()">Back</a></p>

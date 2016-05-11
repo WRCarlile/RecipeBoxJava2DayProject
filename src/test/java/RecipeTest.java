@@ -85,7 +85,7 @@ public class RecipeTest {
   public void update_updatesRecipeTitle_true() {
     Recipe myRecipe = new Recipe("Tacos", "meat", "cook", 5);
     myRecipe.save();
-    myRecipe.update("Burgers");
+    myRecipe.update("Burgers", "Beef", "Grill", 4);
     assertEquals("Burgers", Recipe.find(myRecipe.getId()).getTitle());
   }
 

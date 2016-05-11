@@ -28,91 +28,97 @@ public class AppTest extends FluentTest {
     goTo("http://localhost:4567/");
     assertThat(pageSource()).contains("Recipe Box");
   }
+
+  @Test
+  public void categoryIsCreatedTest() {
+    goTo("http://localhost:4567/");
+    click("a", withText("Categories"));
+    fill("#name").with("Mexican");
+    submit(".btn");
+    assertThat(pageSource()).contains("Mexican");
+  }
+
+  @Test
+  public void recipeIsCreatedTest() {
+    goTo("http://localhost:4567/");
+    click("a", withText("Recipes"));
+    fill("#title").with("Tacos");
+    fill("#ingredients").with("Meat");
+    fill("#instructions").with("Cook");
+    fill("#rating").with("5");
+    submit(".btn");
+    assertThat(pageSource()).contains("Tacos");
+  }
+
+  @Test
+  public void categoryShowPageDisplaysName() {
+    Category testCategory = new Category("Mexican");
+    testCategory.save();
+    String url = String.format("http://localhost:4567/categories/%d", testCategory.getId());
+    goTo(url);
+    assertThat(pageSource()).contains("Mexican");
+  }
+
+  @Test
+  public void recipeShowPageDisplaysTitle() {
+    Recipe testRecipe = new Recipe("Tacos", "meat", "cook", 5);
+    testRecipe.save();
+    String url = String.format("http://localhost:4567/recipes/%d", testRecipe.getId());
+    goTo(url);
+    assertThat(pageSource()).contains("Tacos");
+  }
   //
-  // @Test
-  // public void categoryIsCreatedTest() {
-  //   goTo("http://localhost:4567/");
-  //   click("a", withText("Categories"));
-  //   fill("#name").with("Household chores");
-  //   submit(".btn");
-  //   assertThat(pageSource()).contains("Household chores");
-  // }
-  //
-  // @Test
-  // public void recipeIsCreatedTest() {
-  //   goTo("http://localhost:4567/");
-  //   click("a", withText("Recipes"));
-  //   fill("#title").with("Mow the lawn");
-  //   submit(".btn");
-  //   assertThat(pageSource()).contains("Mow the lawn");
-  // }
-  //
-  // @Test
-  // public void categoryShowPageDisplaysName() {
-  //   Category testCategory = new Category("Household chores");
-  //   testCategory.save();
-  //   String url = String.format("http://localhost:4567/categories/%d", testCategory.getId());
-  //   goTo(url);
-  //   assertThat(pageSource()).contains("Household chores");
-  // }
-  //
-  // @Test
-  // public void recipeShowPageDisplaysTitle() {
-  //   Recipe testRecipe = new Recipe("Mow the lawn");
-  //   testRecipe.save();
-  //   String url = String.format("http://localhost:4567/recipes/%d", testRecipe.getId());
-  //   goTo(url);
-  //   assertThat(pageSource()).contains("Mow the lawn");
-  // }
-  //
-  // @Test
-  // public void recipeIsAddedToCategory() {
-  //   Category testCategory = new Category("Household chores");
-  //   testCategory.save();
-  //   Recipe testRecipe = new Recipe("Mow the lawn");
-  //   testRecipe.save();
-  //   String url = String.format("http://localhost:4567/categories/%d", testCategory.getId());
-  //   goTo(url);
-  //   fillSelect("#recipe_id").withText("Mow the lawn");
-  //   submit("#selectRecipe");
-  //   assertThat(pageSource()).contains("<li>");
-  //   assertThat(pageSource()).contains("Mow the lawn");
-  // }
-  //
-  // @Test
-  // public void categoryIsAddedToRecipe() {
-  //   Category testCategory = new Category("Household chores");
-  //   testCategory.save();
-  //   Recipe testRecipe = new Recipe("Mow the lawn");
-  //   testRecipe.save();
-  //   String url = String.format("http://localhost:4567/recipes/%d", testRecipe.getId());
-  //   goTo(url);
-  //   fillSelect("#category_id").withText("Household chores");
-  //   submit("#addCategory");
-  //   assertThat(pageSource()).contains("<li>");
-  //   assertThat(pageSource()).contains("Household chores");
-  // }
-  // @Test
-  // public void recipeTitleIsUpdated() {
-  //   Recipe testRecipe = new Recipe("Mow the lawn");
-  //   testRecipe.save();
-  //   String url = String.format("http://localhost:4567/recipes/%d", testRecipe.getId());
-  //   goTo(url);
-  //   click("a", withText("Edit this recipe"));
-  //   fill("#title").with("Go out dancing");
-  //   submit(".btn");
-  //   goTo(url);
-  //   assertThat(pageSource()).contains("Go out dancing");
-  // }
-  //
-  // @Test
-  // public void recipeIsDeleted() {
-  //   Recipe testRecipe = new Recipe("Mow the lawn");
-  //   testRecipe.save();
-  //   String url = String.format("http://localhost:4567/recipes/%d", testRecipe.getId());
-  //   goTo(url);
-  //   submit("#delete");
-  //   goTo(url);
-  //   assertThat(pageSource()).contains("$recipe.getTitle()");
-  // }
+  @Test
+  public void recipeIsAddedToCategory() {
+    Category testCategory = new Category("Mexican");
+    testCategory.save();
+    Recipe testRecipe = new Recipe("Tacos", "meat", "cook", 5);
+    testRecipe.save();
+    String url = String.format("http://localhost:4567/categories/%d", testCategory.getId());
+    goTo(url);
+    fillSelect("#recipe_id").withText("Tacos");
+    submit("#selectRecipe");
+    assertThat(pageSource()).contains("<li>");
+    assertThat(pageSource()).contains("Tacos");
+  }
+
+  @Test
+  public void categoryIsAddedToRecipe() {
+    Category testCategory = new Category("Mexican");
+    testCategory.save();
+    Recipe testRecipe = new Recipe("Tacos", "meat", "cook", 5);
+    testRecipe.save();
+    String url = String.format("http://localhost:4567/recipes/%d", testRecipe.getId());
+    goTo(url);
+    fillSelect("#category_id").withText("Mexican");
+    submit("#addCategory");
+    assertThat(pageSource()).contains("<li>");
+    assertThat(pageSource()).contains("Mexican");
+  }
+  @Test
+  public void recipeIsUpdated() {
+    Recipe testRecipe = new Recipe("Tacos", "meat", "cook", 5);
+    testRecipe.save();
+    String url = String.format("http://localhost:4567/recipes/%d", testRecipe.getId());
+    goTo(url);
+    click("a", withText("Edit this recipe"));
+    fill("#title").with("Burgers");
+    fill("#ingredients").with("Beef");
+    fill("#instructions").with("Grill");
+    fill("#rating").with("5");
+    submit(".btn");
+    goTo(url);
+    assertThat(pageSource()).contains("Burgers");
+  }
+
+  @Test
+  public void recipeIsDeleted() {
+    Recipe testRecipe = new Recipe("Tacos", "meat", "cook", 5);
+    testRecipe.save();
+    String url = String.format("http://localhost:4567/recipes/%d", testRecipe.getId());
+    goTo(url);
+    submit("#delete");
+    goTo(url);
+    assertThat(pageSource()).contains("$recipe.getTitle()");
+  }
 }

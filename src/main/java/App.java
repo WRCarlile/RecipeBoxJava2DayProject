@@ -90,8 +90,10 @@ public class App {
       HashMap<String, Object> model = new HashMap<String, Object>();
       Recipe recipe = Recipe.find(Integer.parseInt(request.params("id")));
       String title = request.queryParams("title");
-      // Category category = Category.find(recipe.getCategoryId());
-      recipe.update(title);
+      String ingredients = request.queryParams("ingredients");
+      String instructions = request.queryParams("instructions");
+      int rating = Integer.parseInt(request.queryParams("rating"));
+      recipe.update(title, ingredients, instructions, rating);
       String url = String.format("/recipes/%d", recipe.getId());
       response.redirect(url);
       return new ModelAndView(model, layout);
@@ -148,7 +150,10 @@ public class App {
       int recipeId = Integer.parseInt(request.params("id"));
       Recipe recipe = Recipe.find(recipeId);
       String newTitle = request.queryParams("title");
-      recipe.update(newTitle);
+      String newIngredients = request.queryParams("ingredients");
+      String newInstructions = request.queryParams("instructions");
+      int newRating = Integer.parseInt(request.queryParams("rating"));
+      recipe.update(newTitle, newIngredients, newInstructions, newRating);
       response.redirect("/recipes/" + recipeId);
       return null;
     });

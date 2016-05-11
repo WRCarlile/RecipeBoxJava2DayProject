@@ -94,11 +94,14 @@ public class Recipe {
     }
   }
 
-  public void update(String newTitle) {
+  public void update(String newTitle, String newIngredients, String newInstructions, int newRating) {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "UPDATE recipes SET title = :title WHERE id = :id";
+      String sql = "UPDATE recipes SET title = :title, ingredients = :ingredients,  instructions = :instructions, rating = :rating WHERE id = :id";
       con.createQuery(sql)
         .addParameter("title", newTitle)
+        .addParameter("ingredients", newIngredients)
+        .addParameter("instructions", newInstructions)
+        .addParameter("rating", newRating)
         .addParameter("id", this.id)
         .executeUpdate();
     }

@@ -1,5 +1,4 @@
 <h1>$recipe.getTitle()</h1>
-<h2>$recipe.getIsCompleted()</h2>
 
 #if($recipe.getCategories())
   <p>Here are the categories for this recipe:</p>
@@ -24,23 +23,9 @@
 </form>
 <br>
 <p><a href="/recipes/$recipe.getId()/edit">Edit this recipe</a></p>
-<!-- <p>Edit recipe:</p> -->
-
-<!-- <form action="/recipes/$recipe.getId()/edit" method="post">
-  <label for="title">Title</label>
-  <input id="title" name="title" type="text">
-  <button type="submit" class="btn btn-info" id="update-recipe">Update Recipe</button>
-</form> -->
 
 <form action="/recipes/$recipe.getId()/delete" method="post">
   <button type="submit" class="btn-danger" id="delete">Delete Recipe</button>
 </form>
-
-<!-- <form action="/recipes/$recipe.getId()/complete" method="post">
-  <button type="submit" class="btn btn-danger" id="complete-recipe">complete Recipe</button>
-</form> -->
-
-
-<!-- <p><a href="/recipes/$recipe.getId()/edit">Edit this recipe</a></p> -->
 
 <p><a href="/">Home</a></p>

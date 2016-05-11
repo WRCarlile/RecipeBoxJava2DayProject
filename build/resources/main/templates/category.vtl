@@ -1,5 +1,4 @@
 <h1>$category.getName()</h1>
-<h2>$category.getIsCompleted()</h2>
 
 #if($category.getRecipes())
   <p>Here are the recipes for this category:</p>
@@ -31,10 +30,6 @@
 
 <form action="/categories/$category.getId()/delete" method="post">
   <button type="submit" class="btn btn-danger" id="delete-category">Delete Category</button>
-</form>
-
-<form action="/categories/$category.getId()/complete" method="post">
-  <button type="submit" class="btn btn-danger" id="complete-category">complete Category</button>
 </form>
 
 <p><a href="/">Home</a></p>
