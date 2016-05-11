@@ -28,3 +28,12 @@
   <li><a href="/recipes/$recipe.getId()">$recipe.getTitle()</a> -$recipe.getRating()</li>
   #end
 </ul>
+
+<br>
+<a>Find a recipe with a certain ingredient</a>
+<br>
+<form action="/recipes" method="post">
+  <label for="searchIngredients">Search</label>
+  <input id="searchIngredients" name="searchIngredients" type="text">
+  <button type="submit" id="searchIngredients" class="btn btn-success">Find Ingredients</button>
+</form>

@@ -67,6 +67,14 @@ public class Recipe {
       return con.createQuery(sql).executeAndFetch(Recipe.class);
     }
   }
+  public static List<Recipe> searchIngredients(String search) {
+    String sql = "SELECT * FROM recipes WHERE ingredients LIKE (:%search%);";
+    Recipe recipe = con.createQuery(sql)
+      .addParameter("search", search);
+    try(Connection con = DB.sql2o.open()){
+      return con.createQuery(sql).executeAndFetch(Recipe.class);
+    }
+  }
 
   @Override
   public boolean equals(Object otherRecipe){
