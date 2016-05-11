@@ -37,6 +37,7 @@ public class Recipe {
     return rating;
   }
 
+
   // public void complete(){
   //   if (this.getIsCompleted() ){
   //     this.is_completed = false;
@@ -56,6 +57,13 @@ public class Recipe {
   public static List<Recipe> all() {
     String sql = "SELECT * FROM recipes";
     try(Connection con = DB.sql2o.open()) {
+      return con.createQuery(sql).executeAndFetch(Recipe.class);
+    }
+  }
+
+  public static List<Recipe> allRated() {
+    String sql = "SELECT * FROM recipes WHERE rating > 0 ORDER BY rating DESC;";
+    try(Connection con = DB.sql2o.open()){
       return con.createQuery(sql).executeAndFetch(Recipe.class);
     }
   }

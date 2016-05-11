@@ -21,3 +21,10 @@
 </form>
 
 <p><a href="/">Home</a></p>
+
+
+<ul>
+  #foreach ($recipe in $recipeRatings)
+  <li><a href="/recipes/$recipe.getId()">$recipe.getTitle()</a> -$recipe.getRating()</li>
+  #end
+</ul>
