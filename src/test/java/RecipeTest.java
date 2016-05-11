@@ -3,6 +3,7 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import java.util.List;
 import java.util.ArrayList;
+import static org.assertj.core.api.Assertions.assertThat;
 
 
 public class RecipeTest {
@@ -56,6 +57,29 @@ public class RecipeTest {
     Recipe savedRecipe = Recipe.find(myRecipe.getId());
     assertTrue(myRecipe.equals(savedRecipe));
   }
+
+  @Test
+  public void find_findsRecipeInDatabaseAndIngredient_true() {
+    Recipe myRecipe = new Recipe("Tacos", "meat and cheese", "cook", 5);
+    myRecipe.save();
+    assertThat(myRecipe.getIngredients()).contains("meat");
+    // assertTrue(myRecipe.equals(savedRecipe));
+  }
+
+  // @Test
+  // public void find_findsAllRecipesInDatabaseAndCompares_true() {
+  //   Recipe firstRecipe = new Recipe("Tacos", "meat and cheese", "cook", 5);
+  //   firstRecipe.save();
+  //   Recipe secondRecipe = new Recipe("Burgers", "burger meat and bun", "cook", 5);
+  //   secondRecipe.save();
+  //   Recipe thirdRecipe = new Recipe("Salad", "lettuce and dressing", "cook", 5);
+  //   thirdRecipe.save();
+  //   Recipe allRecipes = Recipe.all();
+  //
+  //   assertThat(allIngredients.getIngredients().contains(thirdRecipe));
+  //   // assertTrue(myRecipe.equals(savedRecipe));
+  // }
+
 
   @Test
   public void update_updatesRecipeTitle_true() {

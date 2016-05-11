@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="CategoryTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2016-05-11T17:34:45" hostname="epicodus-31.local" time="0.255">
+<testsuite name="CategoryTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2016-05-11T18:53:38" hostname="epicodus-31.local" time="0.179">
   <properties/>
-  <testcase name="save_savesObjectIntoDatabase_true" classname="CategoryTest" time="0.122"/>
+  <testcase name="save_savesObjectIntoDatabase_true" classname="CategoryTest" time="0.038"/>
   <testcase name="getName_categoryInstantiatesWithName_String" classname="CategoryTest" time="0.005"/>
-  <testcase name="Category_instantiatesCorrectly_true" classname="CategoryTest" time="0.005"/>
-  <testcase name="delete_deletesAllRecipesAndCategoriesAssociations" classname="CategoryTest" time="0.031"/>
-  <testcase name="all_emptyAtFirst_0" classname="CategoryTest" time="0.011"/>
+  <testcase name="Category_instantiatesCorrectly_true" classname="CategoryTest" time="0.007"/>
+  <testcase name="delete_deletesAllRecipesAndCategoriesAssociations" classname="CategoryTest" time="0.036"/>
+  <testcase name="all_emptyAtFirst_0" classname="CategoryTest" time="0.01"/>
   <testcase name="find_findCategoryInDatabase_true" classname="CategoryTest" time="0.015"/>
-  <testcase name="addRecipe_addsRecipeToCategory_true" classname="CategoryTest" time="0.024"/>
-  <testcase name="save_assignsIdToObject_int" classname="CategoryTest" time="0.012"/>
-  <testcase name="equals_returnsTrueIfNamesAretheSame_true" classname="CategoryTest" time="0.005"/>
-  <testcase name="getRecipes_returnsAllRecipes_List" classname="CategoryTest" time="0.023"/>
+  <testcase name="addRecipe_addsRecipeToCategory_true" classname="CategoryTest" time="0.025"/>
+  <testcase name="save_assignsIdToObject_int" classname="CategoryTest" time="0.013"/>
+  <testcase name="equals_returnsTrueIfNamesAretheSame_true" classname="CategoryTest" time="0.004"/>
+  <testcase name="getRecipes_returnsAllRecipes_List" classname="CategoryTest" time="0.024"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
