@@ -21,13 +21,6 @@ public class App {
       model.put("template", "templates/categories.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
-    //
-    // get("/recipes", (request, response) -> {
-    //   HashMap<String, Object> model = new HashMap<String, Object>();
-    //   model.put("recipeRatings", Recipe.allRated());
-    //   model.put("template", "templates/recipes.vtl");
-    //   return new ModelAndView(model, layout);
-    // }, new VelocityTemplateEngine());
 
     get("/recipes", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
@@ -45,19 +38,13 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    // get("/recipes", (request, response) -> {
-    //   HashMap<String, Object> model = new HashMap<String, Object>();
-    //   model.put("recipes", Recipe.all());
-    //   model.put("template", "templates/recipes.vtl");
-    //   return new ModelAndView(model, layout);
-    // }, new VelocityTemplateEngine());
-
     post("/recipes", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
       String title = request.queryParams("title");
       String ingredients = request.queryParams("ingredients");
       String instructions = request.queryParams("instructions");
-      int rating = Integer.parseInt(request.queryParams("rating"));
+      int rating = Integer.parseInt(request.queryParams("star"));
+      System.out.println(rating);
       Recipe newRecipe = new Recipe(title, ingredients, instructions, rating);
       newRecipe.save();
       response.redirect("/recipes");

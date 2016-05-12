@@ -121,4 +121,5 @@ public class AppTest extends FluentTest {
     goTo(url);
     assertThat(pageSource()).contains("$recipe.getTitle()");
   }
+
 }
