@@ -2,6 +2,7 @@ import java.util.HashMap;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 import static spark.Spark.*;
+import java.util.List;
 
 public class App {
   public static void main(String[] args) {
@@ -20,30 +21,36 @@ public class App {
       model.put("template", "templates/categories.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
+    //
+    // get("/recipes", (request, response) -> {
+    //   HashMap<String, Object> model = new HashMap<String, Object>();
+    //   model.put("recipeRatings", Recipe.allRated());
+    //   model.put("template", "templates/recipes.vtl");
+    //   return new ModelAndView(model, layout);
+    // }, new VelocityTemplateEngine());
 
     get("/recipes", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
+      System.out.println(request.queryParams("searchIngredients"));
+      if (request.queryParams("searchIngredients") != null) {
+        String query = request.queryParams("searchIngredients");
+        List<Recipe> foundRecipes  = Recipe.searchIngredients("%" + query + "%");
+        model.put("foundRecipes", foundRecipes);
+        System.out.println("hello");
+      }
+      List<Recipe> recipes = Recipe.all();
       model.put("recipeRatings", Recipe.allRated());
-
+      model.put("recipes", recipes);
       model.put("template", "templates/recipes.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    get("/recipes", (request, response) -> {
-      HashMap<String, Object> model = new HashMap<String, Object>();
-      String search = request.queryParams("searchIngredients");
-      model.put("search", Recipe.searchIngredients());
-
-      model.put("template", "templates/recipes.vtl");
-      return new ModelAndView(model, layout);
-    }, new VelocityTemplateEngine());
-
-    get("/recipes", (request, response) -> {
-      HashMap<String, Object> model = new HashMap<String, Object>();
-      model.put("recipes", Recipe.all());
-      model.put("template", "templates/recipes.vtl");
-      return new ModelAndView(model, layout);
-    }, new VelocityTemplateEngine());
+    // get("/recipes", (request, response) -> {
+    //   HashMap<String, Object> model = new HashMap<String, Object>();
+    //   model.put("recipes", Recipe.all());
+    //   model.put("template", "templates/recipes.vtl");
+    //   return new ModelAndView(model, layout);
+    // }, new VelocityTemplateEngine());
 
     post("/recipes", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();

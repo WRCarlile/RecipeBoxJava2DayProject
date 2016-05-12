@@ -37,23 +37,6 @@ public class Recipe {
     return rating;
   }
 
-
-  // public void complete(){
-  //   if (this.getIsCompleted() ){
-  //     this.is_completed = false;
-  //   } else {
-  //     this.is_completed = true ;
-  //   }
-  //
-  //   try(Connection con = DB.sql2o.open()) {
-  //     String sql = "UPDATE recipes SET is_completed = :is_completed WHERE id = :id";
-  //     con.createQuery(sql)
-  //       .addParameter("is_completed", this.is_completed)
-  //       .addParameter("id", this.id)
-  //       .executeUpdate();
-  //   }
-  // }
-
   public static List<Recipe> all() {
     String sql = "SELECT * FROM recipes";
     try(Connection con = DB.sql2o.open()) {
@@ -67,12 +50,13 @@ public class Recipe {
       return con.createQuery(sql).executeAndFetch(Recipe.class);
     }
   }
+
   public static List<Recipe> searchIngredients(String search) {
-    String sql = "SELECT * FROM recipes WHERE ingredients LIKE (:%search%);";
-    Recipe recipe = con.createQuery(sql)
-      .addParameter("search", search);
-    try(Connection con = DB.sql2o.open()){
-      return con.createQuery(sql).executeAndFetch(Recipe.class);
+    String sql = "SELECT * FROM recipes WHERE ingredients LIKE :search";
+    try(Connection con = DB.sql2o.open()) {
+      return con.createQuery(sql)
+        .addParameter("search", search)
+        .executeAndFetch(Recipe.class);
     }
   }
 

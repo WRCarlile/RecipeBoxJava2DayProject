@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="CategoryTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2016-05-11T21:46:46" hostname="epicodus-31.local" time="0.128">
+<testsuite name="CategoryTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2016-05-12T20:11:52" hostname="epicodus-58.local" time="0.152">
   <properties/>
-  <testcase name="save_savesObjectIntoDatabase_true" classname="CategoryTest" time="0.012"/>
+  <testcase name="save_savesObjectIntoDatabase_true" classname="CategoryTest" time="0.018"/>
   <testcase name="getName_categoryInstantiatesWithName_String" classname="CategoryTest" time="0.005"/>
-  <testcase name="Category_instantiatesCorrectly_true" classname="CategoryTest" time="0.004"/>
-  <testcase name="delete_deletesAllRecipesAndCategoriesAssociations" classname="CategoryTest" time="0.026"/>
-  <testcase name="all_emptyAtFirst_0" classname="CategoryTest" time="0.007"/>
-  <testcase name="find_findCategoryInDatabase_true" classname="CategoryTest" time="0.012"/>
-  <testcase name="addRecipe_addsRecipeToCategory_true" classname="CategoryTest" time="0.023"/>
+  <testcase name="Category_instantiatesCorrectly_true" classname="CategoryTest" time="0.005"/>
+  <testcase name="delete_deletesAllRecipesAndCategoriesAssociations" classname="CategoryTest" time="0.032"/>
+  <testcase name="all_emptyAtFirst_0" classname="CategoryTest" time="0.008"/>
+  <testcase name="find_findCategoryInDatabase_true" classname="CategoryTest" time="0.017"/>
+  <testcase name="addRecipe_addsRecipeToCategory_true" classname="CategoryTest" time="0.026"/>
   <testcase name="save_assignsIdToObject_int" classname="CategoryTest" time="0.012"/>
   <testcase name="equals_returnsTrueIfNamesAretheSame_true" classname="CategoryTest" time="0.004"/>
-  <testcase name="getRecipes_returnsAllRecipes_List" classname="CategoryTest" time="0.022"/>
+  <testcase name="getRecipes_returnsAllRecipes_List" classname="CategoryTest" time="0.025"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

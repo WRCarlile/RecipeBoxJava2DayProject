@@ -66,20 +66,31 @@ public class RecipeTest {
     // assertTrue(myRecipe.equals(savedRecipe));
   }
 
+  @Test
+  public void find_findsAllRecipesInDatabaseAndCompares_true() {
+    Recipe firstRecipe = new Recipe("Tacos", "meat and cheese", "cook", 5);
+    firstRecipe.save();
+    Recipe secondRecipe = new Recipe("Burgers", "burger meat and bun", "cook", 5);
+    secondRecipe.save();
+    Recipe thirdRecipe = new Recipe("Salad", "lettuce and dressing", "cook", 5);
+    thirdRecipe.save();
+    List<Recipe> allRecipes = Recipe.all();
+
+    List<Recipe> found  = Recipe.searchIngredients("%" + "meat" + "%");
+
+    assertEquals(2, found.size());
+    // assertTrue(myRecipe.equals(savedRecipe));
+  }
   // @Test
   // public void find_findsAllRecipesInDatabaseAndCompares_true() {
   //   Recipe firstRecipe = new Recipe("Tacos", "meat and cheese", "cook", 5);
   //   firstRecipe.save();
   //   Recipe secondRecipe = new Recipe("Burgers", "burger meat and bun", "cook", 5);
   //   secondRecipe.save();
-  //   Recipe thirdRecipe = new Recipe("Salad", "lettuce and dressing", "cook", 5);
-  //   thirdRecipe.save();
-  //   Recipe allRecipes = Recipe.all();
   //
-  //   assertThat(allIngredients.getIngredients().contains(thirdRecipe));
-  //   // assertTrue(myRecipe.equals(savedRecipe));
+  //   Recipe findIngredient = firstRecipe.searchIngredients();
+  //   assertThat(findIngredient.contains("meat");
   // }
-
 
   @Test
   public void update_updatesRecipeTitle_true() {

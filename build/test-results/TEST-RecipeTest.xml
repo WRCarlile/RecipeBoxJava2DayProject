@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="RecipeTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2016-05-11T21:46:46" hostname="epicodus-31.local" time="0.166">
+<testsuite name="RecipeTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2016-05-12T20:11:52" hostname="epicodus-58.local" time="0.203">
   <properties/>
-  <testcase name="save_savesObjectIntoDatabase_true" classname="RecipeTest" time="0.012"/>
-  <testcase name="delete_deletesAllRecipesAndCategoriesAssociations" classname="RecipeTest" time="0.024"/>
-  <testcase name="find_findsRecipeInDatabase_true" classname="RecipeTest" time="0.012"/>
-  <testcase name="getCategories_returnsAllCategories_List" classname="RecipeTest" time="0.022"/>
+  <testcase name="save_savesObjectIntoDatabase_true" classname="RecipeTest" time="0.013"/>
+  <testcase name="delete_deletesAllRecipesAndCategoriesAssociations" classname="RecipeTest" time="0.027"/>
+  <testcase name="find_findsRecipeInDatabase_true" classname="RecipeTest" time="0.016"/>
+  <testcase name="getCategories_returnsAllCategories_List" classname="RecipeTest" time="0.026"/>
   <testcase name="delete_deletesRecipe_true" classname="RecipeTest" time="0.016"/>
   <testcase name="equals_returnsTrueIfTitlesAretheSame_true" classname="RecipeTest" time="0.004"/>
   <testcase name="all_emptyAtFirst_0" classname="RecipeTest" time="0.008"/>
   <testcase name="getTitle_recipeInstantiatesWithTitle_String" classname="RecipeTest" time="0.004"/>
-  <testcase name="find_findsRecipeInDatabaseAndIngredient_true" classname="RecipeTest" time="0.008"/>
-  <testcase name="update_updatesRecipeTitle_true" classname="RecipeTest" time="0.015"/>
-  <testcase name="save_assignsIdToObject_int" classname="RecipeTest" time="0.012"/>
-  <testcase name="addCategory_addsCategoryToRecipe" classname="RecipeTest" time="0.021"/>
+  <testcase name="find_findsRecipeInDatabaseAndIngredient_true" classname="RecipeTest" time="0.01"/>
+  <testcase name="update_updatesRecipeTitle_true" classname="RecipeTest" time="0.017"/>
+  <testcase name="save_assignsIdToObject_int" classname="RecipeTest" time="0.011"/>
+  <testcase name="addCategory_addsCategoryToRecipe" classname="RecipeTest" time="0.02"/>
+  <testcase name="find_findsAllRecipesInDatabaseAndCompares_true" classname="RecipeTest" time="0.026"/>
   <testcase name="Recipe_instantiatesCorrectly_true" classname="RecipeTest" time="0.004"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

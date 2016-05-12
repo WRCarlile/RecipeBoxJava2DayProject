@@ -46,7 +46,7 @@ public class AppTest extends FluentTest {
     fill("#ingredients").with("Meat");
     fill("#instructions").with("Cook");
     fill("#rating").with("5");
-    submit(".btn");
+    submit("#addRecipe");
     assertThat(pageSource()).contains("Tacos");
   }
 

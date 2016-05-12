@@ -17,7 +17,7 @@
   <input id="instructions" name="instructions" type="text">
   <label for="rating">Rating</label>
   <input id="rating" name="rating" type="text">
-  <button type="submit" class="btn btn-success">Add Recipe</button>
+  <button type="submit" class="btn btn-success" id="addRecipe">Add Recipe</button>
 </form>
 
 <p><a href="/">Home</a></p>
@@ -25,6 +25,21 @@
 
 <ul>
   #foreach ($recipe in $recipeRatings)
-  <li><a href="/recipes/$recipe.getId()">$recipe.getTitle()</a> -$recipe.getRating()</li>
+    <li><a href="/recipes/$recipe.getId()">$recipe.getTitle()</a> -$recipe.getRating()</li>
+  #end
+</ul>
+
+<br>
+<a>Find a recipe with a certain ingredient</a>
+<br>
+<form action="/recipes" method="get">
+  <label for="searchIngredients">Search</label>
+  <input id="searchIngredients" name="searchIngredients" type="text">
+  <button type="submit" id="searchIngredients" class="btn btn-success">Find Ingredients</button>
+</form>
+<br>
+<ul>
+  #foreach ($recipe in $foundRecipes)
+    <li><a href="/recipes/$recipe.getId()">$recipe.getTitle()</a></li>
   #end
 </ul>
