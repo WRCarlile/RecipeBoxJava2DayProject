@@ -1,9 +1,9 @@
-# Yelp 2
-practice in java
+# Recipe Box 
+Practice in Java and Spark microframework
 
-## Title
+## Description
 
-practice in java, gradle, velocity, and sparkJava
+A recipe app made with java, gradle, velocity, and sparkJava
 
 ## Setup/Installation Requirements
 
